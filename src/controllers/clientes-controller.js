@@ -38,4 +38,15 @@ module.exports= (app, bd)=>{
             res.send(error)
         }
     })
+
+    app.delete('/clientes/dados/delete/:ID', async(req, res)=>{
+        try{
+            const id = req.params.ID
+            const respostaDeleteCliente = await DaoClientes.DeleteCliente(id)
+            res.send(respostaDeleteCliente)
+        }catch(error){
+            res.send(error)
+        }
+    })
+
 }

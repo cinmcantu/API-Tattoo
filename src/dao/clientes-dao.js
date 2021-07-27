@@ -35,4 +35,15 @@ module.exports = class ClientesDao{
             })
         })
     }
+
+    DeleteCliente(id){
+        return new Promise((resolve, reject)=>{
+            const query = 'DELETE FROM CLIENTES WHERE ID = (?)'
+            this.bd.run(query, id, (error, response)=>{
+                if(error) reject(`Erro ao excluir Cliente. ${error}`)
+                else resolve("Cliente excluido")
+            })
+        })
+    }
+
 }
