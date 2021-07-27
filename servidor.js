@@ -3,6 +3,7 @@ const bodyparser = require('body-parser')
 const cors = require('cors')
 const bd = require('./src/data/sqlite-bd')
 const clientesController = require('./src/controllers/clientes-controller')
+// const port = 3050
 const port = process.env.PORT
 const app = Express()
 
