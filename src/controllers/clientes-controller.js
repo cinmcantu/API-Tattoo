@@ -25,4 +25,17 @@ module.exports= (app, bd)=>{
             res.send(error)
         }
     })
+
+    app.post('/clientes/dados/novoCliente', async(req, res)=>{
+        try{
+            const body = req.body
+            const infos = [body.NOME, body.IDADE, body.GENERO, body.RUA, body.NUMERO, body.CIDADE, body.ESTADO, body.TELEFONE, body.TATUADOR, body.DATA_CADASTRO]
+        
+            const respostaNovoCliente = await DaoClientes.NovoCliente(infos)
+            res.send(respostaNovoCliente)
+        
+        }catch(error){
+            res.send(error)
+        }
+    })
 }
