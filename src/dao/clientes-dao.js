@@ -46,4 +46,15 @@ module.exports = class ClientesDao{
         })
     }
 
+    EditCliente(infos, id){
+        return new Promise((resolve, reject)=>{
+            const query = 'UPDATE CLIENTES SET NOME = (?), IDADE = (?), GENERO = (?), RUA = (?), NUMERO = (?), CIDADE = (?), ESTADO = (?), TELEFONE = (?), TATUADOR = (?), DATA_CADASTRO = (?) WHERE ID = (?)'
+            const parametros = [infos[0], infos[1], infos[2], infos[3], infos[4], infos[5], infos[6], infos[7], infos[8], infos[9],id]
+            this.bd.run(query, parametros, (error, response)=>{
+                if(error) reject(`Erro ao editar Cliente. ${error}`)
+                else resolve("Cliente Editado")
+            })
+        })
+    }
+
 }

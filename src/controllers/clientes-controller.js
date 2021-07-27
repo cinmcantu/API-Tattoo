@@ -48,5 +48,22 @@ module.exports= (app, bd)=>{
             res.send(error)
         }
     })
+ 
+    app.put('/clientes/dados/edit/:ID', async(req, res)=>{
+        try{
+
+            const id = req.params.ID
+
+            const body = req.body
+            const infos = [body.NOME, body.IDADE, body.GENERO, body.RUA, body.NUMERO, body.CIDADE, body.ESTADO, body.TELEFONE, body.TATUADOR, body.DATA_CADASTRO]
+
+            const respostaEditCliente = await DaoClientes.EditCliente(infos, id)
+
+            res.send(respostaEditCliente)
+
+        }catch(error){
+            res.send(error)
+        }
+    })
 
 }
