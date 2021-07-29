@@ -4,7 +4,7 @@ const cors = require('cors')
 const bd = require('./src/data/sqlite-bd')
 const clientesController = require('./src/controllers/clientes-controller')
 // const port = 3050
-const port = process.env.PORT
+const port = process.env.PORT || 3050
 const app = Express()
 
 app.use(Express.json())
