@@ -57,4 +57,14 @@ EditCliente(infos, id){
     })
 }
 
+PegarUltimoCliente(){
+    return new Promise((resolve, reject)=>{
+        const query = 'SELECT * FROM CLIENTES ORDER BY ID DESC LIMIT 1'
+        this.bd.all(query, (error, response)=>{
+            if(error) reject(`Erro ao acessar o Banco de Dados. ${error}`)
+            else resolve(response)
+        })
+    })
+}
+
 }
